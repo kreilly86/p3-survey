@@ -36,7 +36,8 @@ Canva for project logo creation
 
 #### TUTORIALS
 <br>
-[Mike Dane] "https://www.youtube.com/watch?v=SgQhwtIoQ7o" 
+
+[Mike Dane]("https://www.youtube.com/watch?v=SgQhwtIoQ7o") 
 
 
 
