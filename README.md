@@ -19,8 +19,15 @@ The Personality Profiler is a terminal based personality survey using Python 3, 
 
 ## APPLICATION FEATURES
 <hr>
+<br>
 
-###
+### BUGS AND ERRORS
+<hr>
+<br>
+<img src="assets/error1.png">
+<br>
+When creating the run_survey function I encountered an error "Index Error: List index out of range" On closer expection I realised I had failed to seperate each question item with a comma, so the indexing was invalid. Once I added commas, the function ran as expected and generated feedback for the user.
+<br>
 
 ## CREDITS
 <hr>
@@ -28,7 +35,9 @@ The Personality Profiler is a terminal based personality survey using Python 3, 
 ### CONTENT
 <br>
 https://ideas.ted.com/quiz-are-you-an-extrovert-introvert-or-ambivert/r
+<br>
 Canva for project logo creation
+
 <br>
 
 ### CODE

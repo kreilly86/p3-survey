@@ -42,7 +42,7 @@ questions = [
     Question(question_prompts[1], "a"),
     Question(question_prompts[2], "a"),
     Question(question_prompts[3], "a"),
-    Question(question_prompts[4], "b"),
+    Question(question_prompts[4], "a"),
     Question(question_prompts[5], "b"),
     Question(question_prompts[6], "a"),
     Question(question_prompts[7], "b"),
@@ -61,8 +61,13 @@ def run_survey(questions):
         answer = input(question.prompt)
         if answer == question.answer:
             score += 1
-    print(str(score) + "/" + str(len(questions)) + "extrovert")
+    print(str(score) + "/" + str(len(questions)) +  "extrovert")
 
 run_survey(questions)
+
+# work out how to return score and then calculate introvert, extrovert or ambivert
+# if score > 70% = extrovert
+# if score < 40% = introvet
+# if score 50% - 70% = ambivert
 
 
