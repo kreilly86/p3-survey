@@ -22,6 +22,22 @@ The Personality Profiler is a terminal based personality survey using Python 3, 
 
 ###
 
+## CREDITS
+<hr>
+
+### CONTENT
+<br>
+https://ideas.ted.com/quiz-are-you-an-extrovert-introvert-or-ambivert/r
+Canva for project logo creation
+<br>
+
+### CODE
+<hr>
+
+#### TUTORIALS
+<br>
+[Mike Dane] "https://www.youtube.com/watch?v=SgQhwtIoQ7o" 
+
 
 
 
