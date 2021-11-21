@@ -81,6 +81,7 @@ def run_survey(questions):
     Generate 10 questions for user returning
     a score out of 10 for extroversion
     """
+    global score
     score = 0
     for question in questions:
         answer = input(question.prompt)
@@ -88,25 +89,25 @@ def run_survey(questions):
             score += 1
     global result
     result = str(score) + "/" + str(len(questions))
-    print(result)
+    return result
 
 
 run_survey(questions)
 
 
-def calculate_trait(result):
+def calculate_trait(score, result):
     """
     Retrieve result of survey
     and calculate if user is
     an introvert, extrovert
     or ambivert
     """
-    if result > str('7') / str(len(questions)):
-        print(f'"You scored" + {result} + "you are an extrovert!"')
-    elif result < str('4') / str(len(questions)):
-        print(f'"You scored" + {result} + "you are an introvert!"')
+    if score >= 7:
+        print(f'You scored {result} you are an extrovert!')
+    elif score <= 4:
+        print(f'You scored {result} you are an introvert!')
     else:
-        print(f'"You scored" + {result} + "you are an ambivert!"')
+        print(f'You scored {result} you are an ambivert!')
 
 
-calculate_trait(result)
+calculate_trait(score, result)
