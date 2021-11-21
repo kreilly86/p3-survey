@@ -28,28 +28,36 @@ class Question:
 
 
 question_prompts = [
-    """You are more likely to feel energised by?\n(a) getting some alone time
-    (b) going out with some friends\n""",
-    """You feel more like yourself when you're\n(a) the center of attention
-    (b) in the background\n""",
-    """You find talking to a stranger:\n(a) energising!
-    (b) uncomfortable\n""",
-    """You would hate working with someone who is\n(a) timid and meek
-    (b) loud and overbearing\n""",
-    """Generally, which of these do you normally feel?\n(a) overwhelmed and
-    overstimulated\n(b) bored and understimulated\n""",
-    """You usually get more joy out of:\n(a) reading a great book
-    (b) watching a great movie\n""",
+    """You are more likely to feel energised by?
+    (a) Getting some alone time
+    (b) Going out with some friends\n""",
+    """You feel more like yourself when you're
+    (a) The center of attention
+    (b) In the background\n""",
+    """You find talking to a stranger:
+    (a) Energising!
+    (b) Uncomfortable\n""",
+    """You would hate working with someone who is
+    (a) Timid and meek
+    (b) Loud and overbearing\n""",
+    """Generally, which of these do you normally feel?
+    (a) Overwhelmed and overstimulated
+    (b) Bored and understimulated\n""",
+    """You usually get more joy out of:
+    (a) Reading a great book
+    (b) Watching a great movie\n""",
     """The people who know you best would describe you as someone who is
-    (a) outgoing and talkative\n(b) quiet and reflective\n""",
+    (a) Outgoing and talkative
+    (b) Quiet and reflective\n""",
     """In your free time on a weekend, would you prefer?
-    (a) a deep conversation with a close friend
-    (b) mingling at a party with people you've never met before\n""",
-    """You are more productive when you're in a:\n(a) cafe
-    (b) quiet room\n""",
+    (a) A deep conversation with a close friend
+    (b) Mingling at a party with people you've never met before\n""",
+    """You are more productive when you're in a:
+    (a) Cafe
+    (b) Quiet room\n""",
     """When you meet someone for the first time:
-    (a) you usually do most of the listening
-    (b) you usually do most of the talking\n""",
+    (a) You usually do most of the listening
+    (b) You usually do most of the talking\n\n""",
 ]
 
 # questions with answer equating to extraversion quality
@@ -78,7 +86,27 @@ def run_survey(questions):
         answer = input(question.prompt)
         if answer == question.answer:
             score += 1
-    print(str(score) + "/" + str(len(questions)) + "extrovert")
+    global result
+    result = str(score) + "/" + str(len(questions))
+    print(result)
 
 
 run_survey(questions)
+
+
+def calculate_trait(result):
+    """
+    Retrieve result of survey
+    and calculate if user is
+    an introvert, extrovert
+    or ambivert
+    """
+    if result > str('7') / str(len(questions)):
+        print(f'"You scored" + {result} + "you are an extrovert!"')
+    elif result < str('4') / str(len(questions)):
+        print(f'"You scored" + {result} + "you are an introvert!"')
+    else:
+        print(f'"You scored" + {result} + "you are an ambivert!"')
+
+
+calculate_trait(result)
