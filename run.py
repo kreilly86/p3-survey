@@ -12,7 +12,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('personality_profiler')
 
-
+print('-------------------------------------------')
 print('----Welcome to the Personality Profiler----')
 print("  -----Let's explore your traits!-----\n")
 
@@ -84,7 +84,9 @@ def run_survey(questions):
     global score
     score = 0
     for question in questions:
+        global answer
         answer = input(question.prompt)
+        validate_input(answer)
         if answer == question.answer:
             score += 1
     global result
@@ -92,7 +94,20 @@ def run_survey(questions):
     return result
 
 
-run_survey(questions)
+def validate_input(answer):
+    """
+    Checks if user answer
+    is valid, either "a" or "b".
+    Prints error message to terminal
+    if invalid
+    """
+    not_valid = True
+
+    while not_valid:
+        if answer not in ['a', 'b']:
+            print('Invalid input. Please enter either a or b\n')
+        not_valid = False
+        continue
 
 
 def calculate_trait(score, result):
@@ -103,11 +118,12 @@ def calculate_trait(score, result):
     or ambivert
     """
     if score >= 7:
-        print(f'You scored {result} you are an extrovert!')
+        print(f'\nYou scored {result} you are an extrovert!')
     elif score <= 4:
-        print(f'You scored {result} you are an introvert!')
+        print(f'\nYou scored {result} you are an introvert!')
     else:
-        print(f'You scored {result} you are an ambivert!')
+        print(f'\nYou scored {result} you are an ambivert!')
 
 
+run_survey(questions)
 calculate_trait(score, result)
