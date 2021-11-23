@@ -107,7 +107,6 @@ def validate_input(answer):
         if answer not in ['a', 'b']:
             print('Invalid input. Please enter either a or b\n')
         not_valid = False
-        continue
 
 
 def calculate_trait(score, result):
