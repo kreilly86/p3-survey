@@ -23,13 +23,31 @@ def capture_user():
     Get user info such as
     name, age etc
     """
+    global name
     name = input("Please enter your name:\n\n")
     print("Hello", name + "!\n")
+
+    global age
     age = input("Please enter your age:\n\n")
+
+    global gender
     gender = input("Please enter your gender. Male, female or non-binary\n\n")
+
+    global location
     location = input("Please enter the city you live in\n\n")
+
     print("""\nThank you! Now let's dive in and find out more about
     your personality""")
+
+
+def update_survey_worksheet(values):
+    """
+    Updates survey spreadsheet with
+    user details
+    """
+    survey_worksheet = SHEET.worksheet("survey")
+
+    survey_worksheet.append_row(values)
 
 
 class Question:
@@ -120,8 +138,10 @@ def validate_input(answer):
 
     while not_valid:
         if answer not in ['a', 'b']:
-            print('Invalid input. Please enter either a or b\n')
+            print(f'Invalid input. You entered {answer} Please enter a or b\n') 
         not_valid = False
+        answer -= 1
+    return True
 
 
 def calculate_trait(score, result):
@@ -133,10 +153,13 @@ def calculate_trait(score, result):
     """
     if score >= 7:
         print(f'\nYou scored {result} you are an extrovert!\n\n')
+        return 'extrovert'
     elif score <= 4:
         print(f'\nYou scored {result} you are an introvert!\n\n')
+        return 'introvert'
     else:
         print(f'\nYou scored {result} you are an ambivert!\n\n')
+        return 'ambivert'
 
 
 pandemic_prompts = [
@@ -177,7 +200,7 @@ pandemic_questions = [
 ]
 
 
-def further_questions(pandemic_questions):
+def opinion_data(pandemic_questions):
     """
     Ask a set of 5 questions
     to find out users' opinion
@@ -188,16 +211,27 @@ def further_questions(pandemic_questions):
     print('Now we have discovered your personality type')
     print(',we would like to ask a few questions')
     print('relating to your experience of the pandemic\n')
-
+    q_a_map = {}
+    count = 1
     for question in pandemic_questions:
         global answer
         answer = input(question.prompt)
         validate_input(answer)
         if answer == question.answer:
             print('You answered yes\n')
+        q_a_map[count] = answer
+        count += 1
+    return q_a_map
 
 
 capture_user()
 run_survey(questions)
-calculate_trait(score, result)
-further_questions(pandemic_questions)
+trait = calculate_trait(score, result)
+answer_list = [name, age, gender, location, trait]
+key_map = opinion_data(pandemic_questions)
+
+for key, i in key_map.items():
+    answer_list.append(i)
+    print(answer_list)
+
+update_survey_worksheet(answer_list)

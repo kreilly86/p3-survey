@@ -35,6 +35,7 @@ When creating the run_survey function I encountered an error "Index Error: List 
 After I made the function to run the personality survey questions, I created a function called "calculate_trait()" that would take the "score" of the questions and give a value out of 10. By default I have the answers set to equate to an extrovert tendancy. Anything above 70% returns that the user is an extrovert, anything below 40% returns that the user is an introvert, and in between returns that the user is an ambivert. In the run_survey function I have a concatenated string giving the result value / the length of questions which equates to 10. I tried the code to state'" if result > 7/10, print message to user that they are an extrovert. And if "result < 4/10, print message to user that they are an introvert, else print they are an ambivert. Because the values are string values thus didn't work, so instead I changed the conditions and just took the result > 7, or < 4, as the result variable is a number this works, and because the length or questions is 10 it is easy to translate that as a percentage.
 <br>
 <br>
+
 ## CREDITS
 <hr>
 
@@ -50,6 +51,7 @@ https://ideas.ted.com/quiz-are-you-an-extrovert-introvert-or-ambivert/
 Canva for project logo creation
 <br>
 <br>
+
 ### CODE
 <hr>
 
