@@ -117,13 +117,13 @@ def run_survey(questions):
     global score
     score = 0
     for question in questions:
-        while True: 
+        while True:
             global answer
             answer = input(question.prompt)
             if validate_input(answer):
                 break
 
-        if answer == question.answer:  
+        if answer == question.answer:
             score += 1
         global result
         result = str(score) + "/" + str(len(questions))
@@ -213,9 +213,12 @@ def opinion_data(pandemic_questions):
     q_a_map = {}
     count = 1
     for question in pandemic_questions:
-        global answer
-        answer = input(question.prompt)
-        validate_input(answer)
+        while True:
+            global answer
+            answer = input(question.prompt)
+            if validate_input(answer):
+                break
+      
         if answer == question.answer:
             print('You answered yes\n')
         q_a_map[count] = answer
