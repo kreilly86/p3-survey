@@ -117,13 +117,16 @@ def run_survey(questions):
     global score
     score = 0
     for question in questions:
-        global answer
-        answer = input(question.prompt)
-        validate_input(answer)
-        if answer == question.answer:
+        while True: 
+            global answer
+            answer = input(question.prompt)
+            if validate_input(answer):
+                break
+
+        if answer == question.answer:  
             score += 1
-    global result
-    result = str(score) + "/" + str(len(questions))
+        global result
+        result = str(score) + "/" + str(len(questions))
     return result
 
 
@@ -134,13 +137,9 @@ def validate_input(answer):
     Prints error message to terminal
     if invalid
     """
-    not_valid = True
-
-    while not_valid:
-        if answer not in ['a', 'b']:
-            print(f'Invalid input. You entered {answer} Please enter a or b\n') 
-        not_valid = False
-        answer -= 1
+    if answer not in ['a', 'b']:
+        print('Invalid input. Please enter either a or b\n')
+        return False
     return True
 
 
