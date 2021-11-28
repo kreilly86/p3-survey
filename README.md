@@ -11,7 +11,7 @@ The Personality Profiler is a terminal based personality survey using Python 3, 
 <br>
 <br>
 
-[Here is the live version of my project]
+[Here is the live version of my project]("https://personality-profilerkr.herokuapp.com/")
 <hr>
 
 ### USER STORIIES
@@ -38,6 +38,9 @@ iv. As a user I want to receive analysis of my survey answers
 <hr>
 The user is welcomed to the Personality Profiler in the terminal, and is then asked to enter personal details: name, age, gender and location.  Any input errors are handled and they receive feedback on their input.
 <br>
+<br>
+<img src="assets/welcome.png">
+<br>
 <hr>
 
 #### Question Class
@@ -52,16 +55,22 @@ I created a Question Class. There are two instances of the class for the intial 
 #### Personality Survey Questionnaire
 <hr>
 Next a series of 10 questions are asked to find out if the user is an extrovert, introvert or ambivert. To make this function I opted to score the result out of 10 for extroversion, so any user answers which corrrelated to the answer that equates to extroversion would be added to the final results. From here the personality type is calculated, with scores equal to or greater than 7/10 giving an extrovert result, answers less than or equal to 4/10 giving an introvert result and any other score giving an ambivert result.
-
+<br>
 The user is then given a display of their score and the correlating personality type.
+<br>
+<br>
+<img src="assets/survey.png">
 <br>
 <hr>
 
 #### Pandemic Questions
 <hr>
 The next section is a series of 5 questions about how the user has found the pandemic, lockdowns etc. The intention to compile data that can be analysed and shared with the user. for example, "Question 2. Did you notice any change in how you relate to other people. e.g. if you are introverted did you become more extroverted i.e. doing more zoom calls, if you are extroverted did you become more introverted i.e. you became less outward and focused on your interal world a little more.
-
+<br>
 The data compiled may show a change in how people relate, possibly those who are extroverted becoming more comfortable with being less out going for example. Of course this data compiling is quite simplistic and could be more sophisticated. 
+<br>
+<br>
+<img src ="assets/pandemic-questions.png">
 <br>
 <hr>
 
@@ -69,7 +78,7 @@ The data compiled may show a change in how people relate, possibly those who are
 <hr>
 After the user has answered the survey, and pandemic questions their input is captured and linked to an external Google Sheet:
 <br>
-<img>
+<img src="assets/spreadsheet.png">
 <br>
 The spreadsheet has been populated with some dummy data.
 
@@ -77,6 +86,12 @@ The spreadsheet has been populated with some dummy data.
 <br>
 <hr>
 
+#### Final message to User
+<hr>
+The user is thanked for their input which signals the end of the program
+<br>
+<img src="assets/final-message.png">>
+<br>
 ### FUTURE FEATURES
 <hr>
 <br>
@@ -106,9 +121,22 @@ Features to implement:
 <hr>
 The project was deployed using Code Institute's Heroku terminal.
 <br>
-Steps to deployment:
+Steps to deployment in Heroku:
 <br>
-
+- 1. Sign into Heroku account and select create new app.
+- 2. Choose app name and select Europe region, click create app
+- 3. Click Settings tab and select reveal Config Vars
+- 4. Create a Config Vars, enter CREDS for key value and copy entire cres.json file
+    from gitpod into the value key then click add.
+- 5. Add another Config Var with key PORT and value 8000
+- 6. Next click add buildpack and click python and then save changes
+- 7. Click add buildpack again, select nodejs and save
+- 8. Scroll up and click on deploy section from top menu
+- 9. Select Github as deployment method and type in repository name of project
+- 10. Click search and hit connect on repository name
+- 11. As I want Heroku to allow updates to my project I will select enable automatic deploys next
+- 12. Hit deploy branch, and you will see "your app has been deployed", click on link to
+go to the deployed project
 
 #### BUGS AND ERRORS
 <hr>
