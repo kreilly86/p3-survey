@@ -18,26 +18,100 @@ print("  -----Let's explore your trait!-----\n\n")
 print('First we would like to ask for some details\n')
 
 
-def capture_user():
+def capture_name():
     """
-    Get user info such as
-    name, age etc
+    Get users'name
     """
-    global name
-    name = input("Please enter your name:\n\n")
-    print("Hello", name + "!\n")
+    while True:
+        global name
+        name = input("Please enter your name:\n\n")
 
-    global age
-    age = int(input("Please enter your age:\n\n"))
+        if validate_name():
+            print(f"Hello {name}!")
+            break
+        return name
 
-    global gender
-    gender = input("Please enter your gender. Male, female or non-binary\n\n")
 
-    global location
-    location = input("Please enter the city you live in\n\n")
+def capture_age():
+    """
+    Get user's age
+    """
+    while True:
+        global age
+        age = input("Please enter your age: \n\n")
 
-    print("""\nThank you! Now let's dive in and find out more about
-    your personality\n""")
+        if validate_age():
+            print(f"You are {age}")
+            break
+        return age
+
+
+def capture_gender():
+    """
+    Get users' gender
+    """
+    while True:
+        global gender
+        gender = input("""Please enter your gender.
+        Male, female or non-binary\n\n""")
+
+        if validate_gender():
+            print(f"You are {gender}")
+            break
+        return gender
+
+
+def capture_location():
+    """
+    Get users' location
+    """
+    while True:
+        global location
+        location = input('Please enter the city you live in\n\n')
+
+        if validate_location():
+            print(f"You live in {location}")
+            break
+        return location
+
+
+def validate_name():
+    if name.isalpha():
+        return True
+    else:
+        print('Invalid input\n')
+    return False
+
+
+def validate_age():
+    try:
+        if age.isalpha():
+            return True
+    except ValueError():
+        print('Invalid input\n')
+    return False
+
+
+def validate_gender():
+    try:
+        if gender.isalpha():
+            return True
+    except ValueError():
+        print('Invalid input\n')
+    return False
+
+
+def validate_location():
+    try:
+        if location.isalpha():
+            return True
+    except ValueError():
+        print('Invalid input\n')
+    return False
+
+
+# Code format to update Google Sheets taken from Code Institute's
+# Love Sandwiches Project
 
 
 def update_survey_worksheet(values):
@@ -93,7 +167,7 @@ question_prompts = [
     (b) You usually do most of the talking\n\n""",
 ]
 
-# Questions with answer equating to extraversion quality
+# Questions with answer highlighted equating to extraversion quality
 
 questions = [
     Question(question_prompts[0], "b"),
@@ -114,6 +188,8 @@ def run_survey(questions):
     Generate 10 questions for user returning
     a score out of 10 for extroversion
     """
+    print("""Thank you! Now let's dive in and find out more
+    about your personality""")
     global score
     score = 0
     for question in questions:
@@ -153,16 +229,26 @@ def calculate_trait(score, result):
     if score >= 7:
         print('------------------------------------------------')
         print(f'\nYou scored {result} you are an extrovert!\n')
+        print("""FUN FACT: Extroverts tend to be very sociable,
+             making them more likely to form new friendships than introverts.
+             People also tend to form friendships with people with similar
+             levels of extroversion as themselves.""")
         print('-----------------------------------------------')
         return 'extrovert'
     elif score <= 4:
         print('------------------------------------------------')
         print(f'\nYou scored {result} you are an introvert!\n')
+        print("""FUN FACTS: Introverts tend to be quiet and deliberative. They prefer
+        one-on-one meetings, working on their own, and long walks on the beach
+        (just kidding).""")
         print('------------------------------------------------')
         return 'introvert'
     else:
         print('-----------------------------------------------')
         print(f'\nYou scored {result} you are an ambivert!\n')
+        print("""FUN FACT: Ambiverts are more inclined to listen to customers’ interests
+        and less vulnerable to appearing too excited or overconfident,
+        tendencies that can make them highly effective in leadership roles.""")
         print('-----------------------------------------------')
         return 'ambivert'
 
@@ -233,7 +319,11 @@ def opinion_data(pandemic_questions):
     return q_a_map
 
 
-capture_user()
+capture_name()
+capture_age()
+capture_gender()
+capture_location()
+
 run_survey(questions)
 trait = calculate_trait(score, result)
 
@@ -242,6 +332,7 @@ key_map = opinion_data(pandemic_questions)
 
 for key, i in key_map.items():
     answer_list.append(i)
-print(answer_list)
+
 
 update_survey_worksheet(answer_list)
+print(f"Thank you {name} for taking the time to answer our questions!")

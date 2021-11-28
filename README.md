@@ -1,5 +1,6 @@
-<img src="assets/personality-profiler.png">
+
 <br>
+<center><img src="assets/personality-profiler.png"></center>
 <br>
 <hr>
 
@@ -132,16 +133,19 @@ Name, Gender and Location. The 4th is a numeric input, Age. I used the int(input
 
 #### Content
 <hr>
-The questions and info for the survey were taken from this TED.com article:
+- The questions and info for the survey were taken from this TED.com article:
 <br>
-https://ideas.ted.com/quiz-are-you-an-extrovert-introvert-or-ambivert/
-<br>
-<br>
-The list of questions relating to the pandemic were written by myself.
 
+- [TED]('https://ideas.ted.com/quiz-are-you-an-extrovert-introvert-or-ambivert/')
 <br>
-Canva for project logo creation
 <br>
+- The list of questions relating to the pandemic were written by myself.
+<br>
+<br>
+- More info on extroversion:
+<br>
+
+- [Very Well Mind]('https://www.verywellmind.com/what-is-extroversion-2795994')
 <br>
 <hr>
 
