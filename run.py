@@ -41,7 +41,7 @@ def capture_age():
     while True:
         global age
         age = input("Please enter your age:\n\n")
-        
+
         if validate_age():
             print(f"You are {age}\n")
             break

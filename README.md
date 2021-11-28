@@ -16,13 +16,15 @@ The Personality Profiler is a terminal based personality survey using Python 3, 
 
 ### USER STORIIES
 <hr>
-<br>
 i. As a user I want to easily understand the terminal commands
-ii. As a user I want to answer questions that are concise and engaging
-iii. As a user I want feedback on my inputs and for any errors to be handled without much disruption
-iv. As a user I want to receive analysis of my survey answers
-<hr>
 <br>
+ii. As a user I want to answer questions that are concise and engaging
+<br>
+iii. As a user I want feedback on my inputs and for any errors to be handled without much disruption
+<br>
+iv. As a user I want to receive analysis of my survey answers
+<br>
+<hr>
 
 ### FLOW CHART PLAN
 <hr>
@@ -78,11 +80,15 @@ The data compiled may show a change in how people relate, possibly those who are
 <hr>
 After the user has answered the survey, and pandemic questions their input is captured and linked to an external Google Sheet:
 <br>
+<br>
 <img src="assets/spreadsheet.png">
 <br>
-The spreadsheet has been populated with some dummy data.
+The spreadsheet has been populated with some dummy data. I ran out of time to develop
+the spreadsheet further and would have liked to have created a few different functions
+to add up the user values and create meaningful insights, eg. number of extroverts who
+struggled with the lack of social contact during the pandemic. The number of people
+who got a pet during lockdown etc.
 
-<br>
 <br>
 <hr>
 
@@ -90,8 +96,11 @@ The spreadsheet has been populated with some dummy data.
 <hr>
 The user is thanked for their input which signals the end of the program
 <br>
+<br>
 <img src="assets/final-message.png">>
 <br>
+<hr>
+
 ### FUTURE FEATURES
 <hr>
 <br>
@@ -113,7 +122,7 @@ Features to implement:
 <br>
 -I have inputted invalid data to test the error handling for better user experience
 <br>
-- I have tested and validated the project through a PEP8 linter
+- I have tested and validated the project through a PEP8 linter (pep8online.com)
 <br>
 <hr>
 
@@ -123,20 +132,34 @@ The project was deployed using Code Institute's Heroku terminal.
 <br>
 Steps to deployment in Heroku:
 <br>
-- 1. Sign into Heroku account and select create new app.
-- 2. Choose app name and select Europe region, click create app
-- 3. Click Settings tab and select reveal Config Vars
-- 4. Create a Config Vars, enter CREDS for key value and copy entire cres.json file
+
+1. Sign into Heroku account and select create new app.
+
+2. Choose app name and select Europe region, click create app
+
+3. Click Settings tab and select reveal Config Vars
+
+4. Create a Config Vars, enter CREDS for key value and copy entire cres.json file
     from gitpod into the value key then click add.
-- 5. Add another Config Var with key PORT and value 8000
-- 6. Next click add buildpack and click python and then save changes
-- 7. Click add buildpack again, select nodejs and save
-- 8. Scroll up and click on deploy section from top menu
-- 9. Select Github as deployment method and type in repository name of project
-- 10. Click search and hit connect on repository name
-- 11. As I want Heroku to allow updates to my project I will select enable automatic deploys next
-- 12. Hit deploy branch, and you will see "your app has been deployed", click on link to
+
+5. Add another Config Var with key PORT and value 8000
+
+6. Next click add buildpack and click python and then save changes
+
+7. Click add buildpack again, select nodejs and save
+
+8. Scroll up and click on deploy section from top menu
+
+9. Select Github as deployment method and type in repository name of project
+
+10. Click search and hit connect on repository name
+
+11. As I want Heroku to allow updates to my project I will select enable automatic deploys next
+
+12. Hit deploy branch, and you will see "your app has been deployed", click on link to
 go to the deployed project
+<br>
+<hr>
 
 #### BUGS AND ERRORS
 <hr>
@@ -175,19 +198,19 @@ I changed the input to age = input("Please input your age:"), and this worked!
 
 #### Content
 <hr>
-- The questions and info for the survey were taken from this TED.com article:
+The questions and info for the survey were taken from this TED.com article:
 <br>
 
-- [TED]('https://ideas.ted.com/quiz-are-you-an-extrovert-introvert-or-ambivert/')
+[TED]('https://ideas.ted.com/quiz-are-you-an-extrovert-introvert-or-ambivert/')
 <br>
 <br>
-- The list of questions relating to the pandemic were written by myself.
+The list of questions relating to the pandemic were written by myself.
 <br>
 <br>
-- More info on extroversion:
+More info on extroversion:
 <br>
 
-- [Very Well Mind]('https://www.verywellmind.com/what-is-extroversion-2795994')
+[Very Well Mind]('https://www.verywellmind.com/what-is-extroversion-2795994')
 <br>
 <hr>
 
@@ -214,13 +237,8 @@ This site gave useful info on validating user input type:
 
 [Better Programming]("https://betterprogramming.pub/how-you-make-sure-input-is-the-type-you-want-it-to-be-in-python-521f3565a66d")
 <br>
+<hr>
 
 My mentor Gerard McBride for project scope advice and suggestions
 
-
-
-
-
-
-
-
+The Code Institute Slack community for helpful advice
