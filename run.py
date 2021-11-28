@@ -38,8 +38,8 @@ def capture_age():
     """
     while True:
         global age
-        age = input("Please enter your age\n\n")
-
+        age = input("Please enter your age:\n\n")
+        
         if validate_age():
             print(f"You are {age}\n")
             break
@@ -53,7 +53,7 @@ def capture_gender():
     while True:
         global gender
         gender = input("""Please enter your gender.
-Male, female or non-binary\n\n""")
+Male, female or nonbinary\n\n""")
 
         if validate_gender():
             print(f"You are {gender}\n")
@@ -67,7 +67,7 @@ def capture_location():
     """
     while True:
         global location
-        location = input('Please enter the city you live in\n\n')
+        location = input('Please enter the city you live in:\n\n')
 
         if validate_location():
             print(f"You live in {location}\n")
@@ -76,6 +76,12 @@ def capture_location():
 
 
 def validate_name():
+    """
+    Check if user inputs
+    an alphanumeric value for name.
+    If not error message is
+    shown and question repeats
+    """
     if name.isalpha():
         return True
     else:
@@ -94,6 +100,12 @@ def validate_age():
 
 
 def validate_gender():
+    """
+    Check if user inputs
+    an alphanumeric value for gender.
+    If not error message is
+    shown and question repeats
+    """
     if gender.isalpha():
         return True
     else:
@@ -103,6 +115,12 @@ def validate_gender():
 
 
 def validate_location():
+    """
+    Check if user inputs
+    an alphanumeric value for location.
+    If not error message is
+    shown and question repeats
+    """
     if location.isalpha():
         return True
     else:
