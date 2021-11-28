@@ -192,6 +192,13 @@ I changed the input to age = input("Please input your age:"), and this worked!
 <img src="assets/isdigitcorrect.png">
 <br>
 <br>
+As of submission I have 11 problems showing in run.py and have been unable to
+remove these:
+<br>
+<br>
+<img src="assets/runpy-problems.png">
+<br>
+<hr>
 
 ### CREDITS
 <hr>
