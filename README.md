@@ -11,17 +11,18 @@ The Personality Profiler is a terminal based personality survey using Python 3, 
 <br>
 <br>
 
-[Here is the live version of my project]()
+[Here is the live version of my project]
 <hr>
 
 ### USER STORIIES
 <hr>
-
-    i. As a user I want to easily understand the terminal commands
-    ii. As a user I want to answer questions that are concise and engaging
-    iii. As a user I want feedback on my inputs and for any errors to be handled without much disruption
-    iv. As a user I want to receive analysis of my survey answers
+<br>
+i. As a user I want to easily understand the terminal commands
+ii. As a user I want to answer questions that are concise and engaging
+iii. As a user I want feedback on my inputs and for any errors to be handled without much disruption
+iv. As a user I want to receive analysis of my survey answers
 <hr>
+<br>
 
 ### FLOW CHART PLAN
 <hr>
@@ -78,6 +79,11 @@ The spreadsheet has been populated with some dummy data.
 
 ### FUTURE FEATURES
 <hr>
+<br>
+I would like to implement more analysis in the project, by capturing more data in the spreadsheet and creating different functions to find trends in responses. E.g. Did extroverts start to become more comfortable with lockdown and less social contact.
+<br>
+Features to implement:
+<br>
  - A more sophisticated survey that would give more detailed data to analyse and feedback to the user
 <br>
  - Compilation of graphs to show user correlations between personality traits and impact of the pandemic
@@ -127,6 +133,14 @@ Name, Gender and Location. The 4th is a numeric input, Age. I used the int(input
 <br>
 <img src="assets/isdigiterror.png">
 <hr>
+<br>
+I changed the input to age = input("Please input your age:"), and this worked!
+<br>
+<img src="assets/age-input.png">
+<br>
+<img src="assets/isdigitcorrect.png">
+<br>
+<br>
 
 ### CREDITS
 <hr>

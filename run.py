@@ -17,6 +17,8 @@ print('----Welcome to the Personality Profiler----')
 print("  -----Let's explore your trait!-----\n\n")
 print('First we would like to ask for some details\n')
 
+# functions to capture user details and validate it
+
 
 def capture_name():
     """
@@ -338,20 +340,27 @@ def opinion_data(pandemic_questions):
     return q_a_map
 
 
-capture_name()
-capture_age()
-capture_gender()
-capture_location()
+def main():
+    """
+    Run all program
+    functions
+    """
+    capture_name()
+    capture_age()
+    capture_gender()
+    capture_location()
 
-run_survey(questions)
-trait = calculate_trait(score, result)
+    run_survey(questions)
+    trait = calculate_trait(score, result)
 
-answer_list = [name, age, gender, location, trait]
-key_map = opinion_data(pandemic_questions)
+    answer_list = [name, age, gender, location, trait]
+    key_map = opinion_data(pandemic_questions)
 
-for key, i in key_map.items():
-    answer_list.append(i)
+    for key, i in key_map.items():
+        answer_list.append(i)
+
+    update_survey_worksheet(answer_list)
 
 
-update_survey_worksheet(answer_list)
+main()
 print(f"Thank you {name} for taking the time to answer our questions!")
