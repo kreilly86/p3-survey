@@ -1,3 +1,7 @@
+"""
+Import credentials from google
+to link to spreadsheet
+"""
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -25,13 +29,13 @@ def capture_name():
     Get users'name
     """
     while True:
-        global name
-        name = input("Please enter your name:\n\n")
+        global NAME
+        NAME = input("Please enter your name:\n\n")
 
         if validate_name():
-            print(f"Hello {name}!\n")
+            print(f"Hello {NAME}!\n")
             break
-        return name
+        return NAME
 
 
 def capture_age():
@@ -39,13 +43,13 @@ def capture_age():
     Get user's age
     """
     while True:
-        global age
-        age = input("Please enter your age:\n\n")
+        global AGE
+        AGE = input("Please enter your age:\n\n")
 
         if validate_age():
-            print(f"You are {age}\n")
+            print(f"You are {AGE}\n")
             break
-        return age
+        return AGE
 
 
 def capture_gender():
@@ -53,14 +57,14 @@ def capture_gender():
     Get users' gender
     """
     while True:
-        global gender
-        gender = input("""Please enter your gender.
+        global GENDER
+        GENDER = input("""Please enter your gender.
 Male, female or nonbinary\n\n""")
 
         if validate_gender():
-            print(f"You are {gender}\n")
+            print(f"You are {GENDER}\n")
             break
-        return gender
+        return GENDER
 
 
 def capture_location():
@@ -68,13 +72,13 @@ def capture_location():
     Get users' location
     """
     while True:
-        global location
-        location = input('Please enter the city you live in:\n\n')
+        global LOCATION
+        LOCATION = input('Please enter the city you live in:\n\n')
 
         if validate_location():
-            print(f"You live in {location}\n")
+            print(f"You live in {LOCATION}\n")
             break
-        return location
+        return LOCATION
 
 
 def validate_name():
@@ -84,7 +88,7 @@ def validate_name():
     If not error message is
     shown and question repeats
     """
-    if name.isalpha():
+    if NAME.isalpha():
         return True
     else:
         print('Invalid input\n')
@@ -93,7 +97,13 @@ def validate_name():
 
 
 def validate_age():
-    if age.isdigit():
+    """
+    Check if user inputs
+    an integer value for age.
+    If not error message is
+    shown and question repeats
+    """
+    if AGE.isdigit():
         return True
     else:
         print('Invalid input\n')
@@ -108,7 +118,7 @@ def validate_gender():
     If not error message is
     shown and question repeats
     """
-    if gender.isalpha():
+    if GENDER.isalpha():
         return True
     else:
         print('Invalid input\n')
@@ -123,7 +133,7 @@ def validate_location():
     If not error message is
     shown and question repeats
     """
-    if location.isalpha():
+    if LOCATION.isalpha():
         return True
     else:
         print('Invalid input\n')
@@ -211,20 +221,20 @@ def run_survey(questions):
     """
     print("""Thank you! Now let's dive in and find out more
     about your personality""")
-    global score
-    score = 0
+    global SCORE
+    SCORE = 0
     for question in questions:
         while True:
-            global answer
-            answer = input(question.prompt)
-            if validate_input(answer):
+            global ANSWER
+            ANSWER = input(question.prompt)
+            if validate_input(ANSWER):
                 break
 
-        if answer == question.answer:
-            score += 1
-        global result
-        result = str(score) + "/" + str(len(questions))
-    return result
+        if ANSWER == question.answer:
+            SCORE += 1
+        global RESULT
+        RESULT = str(SCORE) + "/" + str(len(questions))
+    return RESULT
 
 
 def validate_input(answer):
@@ -328,14 +338,14 @@ def opinion_data(pandemic_questions):
     count = 1
     for question in pandemic_questions:
         while True:
-            global answer
-            answer = input(question.prompt)
-            if validate_input(answer):
+            global ANSWER
+            ANSWER = input(question.prompt)
+            if validate_input(ANSWER):
                 break
 
-        if answer == question.answer:
+        if ANSWER == question.answer:
             print('Thank you for your input!\n')
-        q_a_map[count] = answer
+        q_a_map[count] = ANSWER
         count += 1
     return q_a_map
 
@@ -351,9 +361,9 @@ def main():
     capture_location()
 
     run_survey(questions)
-    trait = calculate_trait(score, result)
+    trait = calculate_trait(SCORE, RESULT)
 
-    answer_list = [name, age, gender, location, trait]
+    answer_list = [NAME, AGE, GENDER, LOCATION, trait]
     key_map = opinion_data(pandemic_questions)
 
     for key, i in key_map.items():
@@ -363,4 +373,4 @@ def main():
 
 
 main()
-print(f"Thank you {name} for taking the time to answer our questions!")
+print(f"Thank you {NAME} for taking the time to answer our questions!")
